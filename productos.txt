@@ -1,0 +1,1 @@
+[{"nombre":"camote","codigo":"123","url":"imagen.com","precio":"20","cantidad":"4","descripcion":"tuberculo","id":1}]
