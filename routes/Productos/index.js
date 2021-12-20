@@ -1,5 +1,5 @@
 const Contenedor = require('./productos');
-let contenedor = new Contenedor("./components/utils/productos.txt")
+let contenedor = new Contenedor("./utils/productos.txt")
 
 
 module.exports = (app) => {

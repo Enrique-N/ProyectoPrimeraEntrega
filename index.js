@@ -1,7 +1,7 @@
 let express = require('express');
 let app = express()
-const productosRoute = require("./components/routes/Productos/index")
-const carritoRoute = require("./components/routes/Carrito/index")
+const productosRoute = require("./routes/Productos/index")
+const carritoRoute = require("./routes/Carrito/index")
 const PORT = 3000;
 
 productosRoute(app)

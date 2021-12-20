@@ -1,5 +1,5 @@
 const Carrito = require("./carrito")
-let carrito = new Carrito("./components/utils/carrito.txt")
+let carrito = new Carrito("./utils/carrito.txt")
 
 module.exports = (app) => {
 
