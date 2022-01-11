@@ -1,3 +1,4 @@
+const res = require("express/lib/response");
 const fs = require("fs");
 
 class Contenedor {
@@ -37,7 +38,7 @@ class Contenedor {
         try {
             let data = await fs.promises.readFile(this.url, 'utf-8')
             data = JSON.parse(data)
-            res.send(data)
+            return res.send(data)
         } catch (error) {
             throw new Error(error)
         }

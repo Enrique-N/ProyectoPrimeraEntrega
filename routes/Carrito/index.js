@@ -1,24 +1,24 @@
 const Carrito = require("./carrito")
 let carrito = new Carrito("./utils/carrito.txt")
 
-module.exports = (app) => {
+module.exports = (routeCarrito) => {
 
-    app.post("/carrito", (req, res) => {
+    routeCarrito.post("/", (req, res) => {
         carrito.newCarrito(res)
     })
 
-    app.delete("/carrito/:id", (req, res) => {
+    routeCarrito.delete("/:id", (req, res) => {
         let { id } = req.params;
         carrito.deleteCarrito(id)
         res.send(`Se elimino el carrito${id}`)
     })
 
-    app.get("/carrito/:id/productos", (req, res) => {
+    routeCarrito.get("/:id/productos", (req, res) => {
         let { id } = req.params
         carrito.getById(id, res)
     })
 
-    app.post("/carrito/:id/productos", (req, res) => {
+    routeCarrito.post("/:id/productos", (req, res) => {
         let { id } = req.params
         let date = new Date()
         let producto = {
@@ -33,7 +33,7 @@ module.exports = (app) => {
         carrito.addCarrito(id, producto)
     })
 
-    app.delete("/carrito/:id/productos/:id_prod", (req, res) => {
+    routeCarrito.delete("/:id/productos/:id_prod", (req, res) => {
         let { id } = req.params
         let { id_prod } = req.params
         carrito.deleteProducto(id, id_prod)
