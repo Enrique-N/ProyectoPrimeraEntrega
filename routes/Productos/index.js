@@ -3,6 +3,7 @@ let contenedor = new Contenedor("./utils/productos.txt")
 
 
 module.exports = (routeProductos) => {
+
     routeProductos.get("/:id", (req, res) => {
         let { id } = req.params;
         contenedor.getById(id, res)
@@ -29,12 +30,7 @@ module.exports = (routeProductos) => {
     routeProductos.post("/", (req, res) => {
         let date = new Date()
         let producto = {
-            nombre: req.query.nombre,
-            codigo: req.query.codigo,
-            url: req.query.url,
-            precio: req.query.precio,
-            cantidad: req.query.cantidad,
-            descripcion: req.query.descripcion,
+            ...req.body,
             tiempo: date.toLocaleString("en-US")
         }
         contenedor.save(producto)
@@ -42,3 +38,4 @@ module.exports = (routeProductos) => {
     })
 
 }
+

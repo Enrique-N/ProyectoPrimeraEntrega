@@ -22,12 +22,7 @@ module.exports = (routeCarrito) => {
         let { id } = req.params
         let date = new Date()
         let producto = {
-            nombre: req.query.nombre,
-            codigo: req.query.codigo,
-            url: req.query.url,
-            precio: req.query.precio,
-            cantidad: req.query.cantidad,
-            descripcion: req.query.descripcion,
+            ...req.body,
             tiempo: date.toLocaleString("en-US")
         }
         carrito.addCarrito(id, producto)
